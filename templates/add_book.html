@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Book</title>
+    <style>
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Add a New Book</h1>
+    </header>
+
+      <div class="flash-messages">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Form to add a new book -->
+    <form action="/add_book" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+
+        <label for="publication_year">Publication Year:</label>
+        <input type="number" id="publication_year" name="publication_year" min="-2000" max="2024" required>
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required>
+
+        <label for="count">Number of Copies:</label>
+        <input type="number" id="count" name="count" min="1" max="999" required>
+
+        <button type="submit">Add Book</button>
+    </form>
+
+    <!-- Link to go back to the library list -->
+    <p><a href="/">Back to Library</a></p>
+</body>
+
+</html>

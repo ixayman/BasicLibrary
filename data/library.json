@@ -1,1 +1,82 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "publication_year": "1960",
+        "genre": "Fiction",
+        "count": 5
+    },
+    {
+        "id": 2,
+        "title": "1984",
+        "author": "George Orwell",
+        "publication_year": "1949",
+        "genre": "Dystopian",
+        "count": 3
+    },
+    {
+        "id": 3,
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "publication_year": "1813",
+        "genre": "Romance",
+        "count": 4
+    },
+    {
+        "id": 4,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "publication_year": "1925",
+        "genre": "Fiction",
+        "count": 6
+    },
+    {
+        "id": 5,
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "publication_year": "1851",
+        "genre": "Adventure",
+        "count": 2
+    },
+    {
+        "id": 6,
+        "title": "War and Peace",
+        "author": "Leo Tolstoy",
+        "publication_year": "1869",
+        "genre": "Historical",
+        "count": 7
+    },
+    {
+        "id": 7,
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "publication_year": "1951",
+        "genre": "Fiction",
+        "count": 3
+    },
+    {
+        "id": 8,
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "publication_year": "1937",
+        "genre": "Fantasy",
+        "count": 5
+    },
+    {
+        "id": 9,
+        "title": "Ulysses",
+        "author": "James Joyce",
+        "publication_year": "1922",
+        "genre": "Modernist",
+        "count": 4
+    },
+    {
+        "id": 10,
+        "title": "The Odyssey",
+        "author": "Homer",
+        "publication_year": "-800",
+        "genre": "Epic",
+        "count": 6
+    }
+]

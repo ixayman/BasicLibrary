@@ -1,4 +1,5 @@
-from cli import main
+import flaskmgmt
 
 if __name__ == "__main__":
-    main()
+    flaskmgmt.FlaskApp.run()
+

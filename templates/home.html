@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 15px;
+        }
+        table {
+            border-spacing: 15px;
+        }
+        th a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Library Management</h1>
+    </header>
+
+      <div class="flash-messages">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <form class="search-form" action="/" method="get">
+        <input type="text" name="search" placeholder="Search for books" value="{{ request.args.get('search', '') }}">
+        <button type="submit">Search</button>
+        {% if search_query %}
+            <a href="/" class="button">Clear Search</a>
+        {% endif %}
+    </form>
+    <!-- Display current sorting method -->
+    <p>Currently sorted by:
+        <strong>{% if sort_by == 'count' %}
+                    Number of copies
+                {% else %}
+                    {{ sort_by.replace('_', ' ').title() }}
+                {% endif %}</strong> in
+        <strong>{{ 'ascending' if sort_order == 'asc' else 'descending' }}</strong> order.
+    </p>
+     <!-- Link to the Add Book page -->
+    <p><a href="/add_book_page">Add a new book</a></p>
+
+    <table id="libraryTable">
+        <thead>
+            <tr>
+                <!-- Add links to headers for sorting by each column -->
+                <th><a href="/?sort_by=title&sort_order={{ 'desc' if sort_by ==
+                'title' and sort_order == 'asc' else 'asc' }}">Title</a></th>
+                <th><a href="/?sort_by=author&sort_order={{ 'desc' if sort_by ==
+                'author' and sort_order == 'asc' else 'asc' }}">Author</a></th>
+                <th><a href="/?sort_by=publication_year&sort_order={{ 'desc' if sort_by ==
+                 'publication_year' and sort_order == 'asc' else 'asc' }}">Publication year</a></th>
+                <th><a href="/?sort_by=genre&sort_order={{ 'desc' if sort_by ==
+                'genre' and sort_order == 'asc' else 'asc' }}">Genre</a></th>
+                <th><a href="/?sort_by=count&sort_order={{ 'desc' if sort_by ==
+                'count' and sort_order == 'asc' else 'asc' }}">Number of copies</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through each entry in the entries list and create a table row -->
+            {% for entry in entries %}
+            <tr>
+                <!-- Populate each table cell with data from the entry -->
+                <td>{{ entry.title }}</td>
+                <td>{{ entry.author }}</td>
+                <td>{{ entry.publication_year }}</td>
+                <td>{{ entry.genre }}</td>
+                <td>{{ entry.count }}</td>
+                 <td>
+                    <a href="/update_book_page/{{ entry.id }}">Update Book</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
