@@ -5,6 +5,8 @@ from update import update_book, update_book_page, delete_book
 from search import filter_entries
 
 
+# added for pull request
+
 class FlaskApp:
     app = Flask(__name__, template_folder='templates')
     app.secret_key = '10/10noncrackablekey'
